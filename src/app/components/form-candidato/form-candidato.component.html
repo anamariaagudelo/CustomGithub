@@ -1,0 +1,76 @@
+<div class="container">
+    <br>
+    <div class="card">
+        <div class="card-header">
+            <h1 class="text-center"> REGISTER CANDIDATE INFORMATION </h1>
+        </div>
+        <div class="card-body">
+            <form (ngSubmit)="onSaveCandidate(formSaveCandidata)" #formSaveCandidata="ngForm" novalidate="">
+
+                <div class="form-group row was-validated">
+                    <label for="name" class="col-sm-2 col-form-label">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" placeholder="Name" id="name" name="name" [(ngModel)]="candidate.name" required #name="ngModel">
+                        <div *ngIf="name?.errors?.required && (name.touched)" class="invalid-feedback">Este campo es requerido</div>
+                        <div *ngIf="name?.errors?.minlength && (name.touched)" class="invalid-feedback">Mínimo 3 caracteres
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row was-validated">
+                    <label for="lastName" class="col-sm-2 col-form-label">Last Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" placeholder="lastName" id="lastName" name="lastName" [(ngModel)]="candidate.lastName" required #lastName="ngModel">
+                        <div *ngIf="lastName?.errors?.required && (lastName.touched)" class="invalid-feedback">Este campo es requerido</div>
+                        <div *ngIf="lastName?.errors?.minlength && (lastName.touched)" class="invalid-feedback">Mínimo 3 caracteres
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row was-validated">
+                    <label for="id" class="col-sm-2 col-form-label">Identification</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" placeholder="id" id="id" name="id" [(ngModel)]="candidate.id" required #id="ngModel">
+                        <div *ngIf="id?.errors?.required && (id.touched)" class="invalid-feedback">Este campo es requerido</div>
+                        <div *ngIf="id?.errors?.minlength && (id.touched)" class="invalid-feedback">Mínimo 3 caracteres
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row was-validated">
+                    <label for="date" class="col-sm-2 col-form-label">Birt Date</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" placeholder="dd/mm/aaaa" id="date" name="date" [(ngModel)]="candidate.birthDate" required #date="ngModel">
+                        <div *ngIf="date?.errors?.required && (date.touched)" class="invalid-feedback">Este campo es requerido</div>
+                        <div *ngIf="date?.errors?.minlength && (date.touched)" class="invalid-feedback">Mínimo 3 caracteres
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row was-validated">
+                    <label for="email" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" placeholder="email@example.com" id="email" name="email" [(ngModel)]="candidate.email" required #email="ngModel">
+                        <div *ngIf="email?.errors?.required && (email.touched)" class="invalid-feedback">Este campo es requerido</div>
+                        <div *ngIf="email?.errors?.minlength && (email.touched)" class="invalid-feedback">Mínimo 3 caracteres
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row was-validated">
+                    <label for="userGit" class="col-sm-2 col-form-label">User Github</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" placeholder="userGit" id="userGit" name="userGit" [(ngModel)]="candidate.userGithub" required #userGit="ngModel">
+                        <div *ngIf="userGit?.errors?.required && (userGit.touched)" class="invalid-feedback">Este campo es requerido</div>
+                        <div *ngIf="userGit?.errors?.minlength && (userGit.touched)" class="invalid-feedback">Mínimo 3 caracteres
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <label for="obligatorios" class="col-6 col-form-label">All fields are required</label>
+                <hr>
+                <div class="form-footer">
+                    <button type="submit" [disabled]="!formSaveCandidata.valid" class=" btn btn-primary ">
+                            Register</button>
+                    <hr>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+</div>

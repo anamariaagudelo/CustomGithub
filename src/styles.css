@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+
+.contenedor {
+    height: default;
+    width: default;
+    background-color: rgb(20, 20, 20);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
