@@ -1,4 +1,5 @@
 <div class="container">
+    <br>
     <app-notfound *ngIf="error"></app-notfound>
     <br>
     <input [formControl]="findControl" type="text" class="form-control mr-sm-2" placeholder="Search Github User">
@@ -7,9 +8,13 @@
         <div class="card-header">
             <h1 class="text-center"> public repositories</h1>
         </div>
+        <hr>
+        <form class="form-inline my-2 my-lg-0">
+            <input [formControl]="findControl" (keyup)="applyFilter($event.target.value)" type="text" class="form-control mr-sm-2" placeholder="Filter">
+        </form>
+
         <div class="card-body">
             <table class="table">
-                <input [formControl]="findControl" (keyup)="applyFilter($event.target.value)" type="text" class="form-control mr-sm-2" placeholder="Filtrar">
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
@@ -19,7 +24,7 @@
                         <th scope="col">Language</th>
                     </tr>
                 </thead>
-                <tbody *ngFor="let repo of user.repositories">
+                <tbody *ngFor="let repo of user.repositories | paginate: { itemsPerPage: 5, currentPage: pageActual }">
                     <tr class="table-active">
                         <th scope="row">{{repo.name}}</th>
                         <td>{{repo.description}}</td>
@@ -29,6 +34,7 @@
                     </tr>
                 </tbody>
             </table>
+            <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
         </div>
     </div>
 </div>

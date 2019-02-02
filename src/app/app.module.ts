@@ -12,21 +12,10 @@ import { FormsModule } from '@angular/forms';
 import { ConsulReposComponent } from './components/consul-repos/consul-repos.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AppRoutingModule } from './app-routing/AppRoutingModule';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 
 // Services
 import { GithubService } from './components/service/github.service';
-
-
-
-
-
-
-
-
-
-
-
 
 
 @NgModule({
@@ -45,6 +34,7 @@ import { GithubService } from './components/service/github.service';
     ReactiveFormsModule,
     FormsModule,
     AppRoutingModule,
+    NgxPaginationModule
   ],
   providers: [
     GithubService

@@ -20,6 +20,7 @@ export class ConsulReposComponent implements OnInit {
   findControl = new FormControl();
   error = false;
   user: User = null;
+  pageActual = 1;
 
   ngOnInit() {
     this.searchUser();
@@ -51,7 +52,6 @@ export class ConsulReposComponent implements OnInit {
           this.githubService.getRepos(value).pipe(
             catchError(err => {
               this.user = null;
-              this.user.repositories = null;
               this.error = true;
               return EMPTY;
             })))
