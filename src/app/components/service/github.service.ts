@@ -6,7 +6,12 @@ import { User } from '../models/user.model';
 import { Repos } from '../models/repos.model';
 import { CandidateInterface } from '../models/candidato.model';
 
-
+/**
+ * Servicio mediante el cual se accede a la Api de Github,para obtener la información
+ * de un usuario y de sus repositorios mediante los métodos getUser() y getRepos().
+ * Adicionalmente permite guardar la información de un candidato en una cookie y en localStorege
+ * para luego mostrarle en la cabecera de la pagina Web mediante un alert.
+ */
 
 @Injectable({
   providedIn: 'root'
