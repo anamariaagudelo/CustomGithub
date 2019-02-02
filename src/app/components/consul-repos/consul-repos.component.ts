@@ -67,4 +67,9 @@ export class ConsulReposComponent implements OnInit {
     .pipe(filter(value => value.length > 3),
       debounceTime(1000));
   }
+
+  trackById(index, repos: Repos) {
+    return repos.name;
+
+  }
 }
